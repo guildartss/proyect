@@ -1,4 +1,4 @@
-import { Injectable, signal, input } from '@angular/core';
+import { Injectable, signal, input, effect } from '@angular/core';
 import { Stock } from '../interfaces/stock.interface';
 
 @Injectable({
@@ -7,14 +7,22 @@ import { Stock } from '../interfaces/stock.interface';
 export class StockService {
 
   constructor() { }
-  stockList = signal<Stock[]>([
-    { id: 1, name: 'laptop', cuantity: 9 },
-    { id: 2, name: 'mouse', cuantity: 3 },
-    { id: 3, name: 'teclado', cuantity: 15 },
-    { id: 4, name: 'monitor', cuantity: 1 },
-  ]);
+  // stockList = signal<Stock[]>([
+  //   { id: 1, name: 'laptop', cuantity: 9 },
+  //   { id: 2, name: 'mouse', cuantity: 3 },
+  //   { id: 3, name: 'teclado', cuantity: 15 },
+  //   { id: 4, name: 'monitor', cuantity: 1 },
+  // ]);
+  stockList = signal<Stock[]>(loadFromlocalStorage());
+  saveStocksInLocalStorage = effect(() => {
+    localStorage.setItem('stock', JSON.stringify(this.stockList()));
+  });
+
   addStock(stockItem: Stock) {
     this.stockList.update((list) => [...list, stockItem]);
   }
-
+}
+function loadFromlocalStorage(): Stock[] {
+  const stock = localStorage.getItem('stock');
+  return stock ? JSON.parse(stock) : [];
 }

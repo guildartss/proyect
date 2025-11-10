@@ -10,3 +10,12 @@
         (change)="this.cuantity.set(txtCuantity.valueAsNumber)" (input)="this.cuantity.set(txtCuantity.valueAsNumber)"
         #txtCuantity />
 </div>
+<div class="mb-3">
+    <h5>existencia: {{ this.existence() }}</h5>
+    <input type="number" class="form-control" placeholder="existencia" [value]="this.existence()"
+        (change)="this.existence.set(txtExistence.valueAsNumber)"
+        (input)="this.existence.set(txtExistence.valueAsNumber)" #txtExistence />
+</div>
+<button class="btn btn-primary mt-5" (click)="addStock()">
+    Agregar Stock
+</button>

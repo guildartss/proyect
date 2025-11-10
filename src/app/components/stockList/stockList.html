@@ -8,6 +8,7 @@
         <strong [class.text-danger]="stock.cuantity < 10" [class.text-success]="stock.cuantity > 10">
             {{stock.cuantity}}
         </strong>
+        <strong [class.text-warning]="stock.existence"> existencia: {{stock.existence}} </strong>
     </li>
     }@else{
     <li>
