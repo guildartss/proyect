@@ -1,23 +1,12 @@
 <h3 class="mb-5">{{ stockAddTitle() }}</h3>
 <div class="mb-3">
-<h5>Desde signal: {{this.name()}}</h5>
-<input 
-    type="text" 
-    class="form-control"
-    placeholder="Nombre del producto"
-    [value]="this.name()"
-    (change)="this.name.set(txtName.value)"
-    (input)="this.name.set(txtName.value)"
-    #txtName>
+    <h5>Desde signal: {{ this.name() }}</h5>
+    <input type="text" class="form-control" placeholder="Nombre" [value]="this.name()"
+        (change)="this.name.set(txtName.value)" (input)="this.name.set(txtName.value)" #txtName />
 </div>
 <div class="mb-3">
-<h5>Desde signal: {{this.quantity()}}</h5>
-<input 
-    type="number" 
-    class="form-control"
-    placeholder="cantidad"
-    [value]="this.cuantity()" 
-    (change)="this.cuantity.set(txtCuantity.valueAsNumber)"
-    (input)="this.cuantity.set(txtCuantity.valueAsNumber)"
-    #txtCuantity>
+    <h5>cantidad: {{ this.cuantity() }}</h5>
+    <input type="number" class="form-control" placeholder="cantidad" [value]="this.cuantity()"
+        (change)="this.cuantity.set(txtCuantity.valueAsNumber)" (input)="this.cuantity.set(txtCuantity.valueAsNumber)"
+        #txtCuantity />
 </div>

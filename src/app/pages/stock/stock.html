@@ -3,9 +3,9 @@
 
 <div class="row">
     <div class="col">
-        <app-stock-add></app-stock-add>  
+        <app-stock-add></app-stock-add>
     </div>
     <div class="col">
-        <!-- <app-stock-list></app-stock-list> -->
+        <app-stock-list [stockList]="stockService.stockList()"></app-stock-list>
     </div>
 </div>
