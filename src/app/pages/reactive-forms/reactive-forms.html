@@ -1,0 +1,72 @@
+<h1>{{ this.name() | titlecase}}</h1>
+<h2>Formularios Reactivos</h2>
+<div class="row container">
+<div class="col">
+    <form autocomplete="off" [formGroup]="myForm">
+
+        <div class="mb-3 row">
+            <label>Producto</label>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Nombre del producto" formControlName="product">
+                <span class="formText text-danger">error</span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+             <label>Cantidad</label>
+             <div class="col">
+                <input type="number" class="form-control" placeholder="Cantidad del producto" formControlName="cuantity">
+             </div>
+        </div>
+        <div class="mb-3 row">
+             <label>Existencia</label>
+             <div class="col">
+                <input type="number" class="form-control" placeholder="Existencia del producto" formControlName="existence">
+             </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="button" type="submit" class="btn btn-primary">
+                    Guardar
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre> {{ myForm.valid |json}} </pre>
+
+        <span>Pristine</span>
+        <pre> {{ myForm.pristine |json}} </pre>
+
+        <span>Touched</span>
+        <pre> {{ myForm.touched |json}} </pre>
+
+        <span>Value</span>
+        <pre> {{ myForm.value |json}} </pre>
+
+    </div>
+    <div class="col">
+        <span>Error Producto</span>
+        <pre> {{ myForm.controls.product.errors | json }} </pre>
+
+        <span>Error Cantidad</span>
+        <pre> {{ myForm.controls.cuantity.errors | json }} </pre>
+        <span>Error Existencia</span>
+        <pre> {{ myForm.controls.existence.errors | json }} </pre>
+
+    </div>
+    <div class="col">
+        <span>Value Product</span>
+        <pre> {{ myForm.controls.product.value | json }} </pre>
+
+        <span>Value Cantidad</span>
+        <pre> {{ myForm.controls.cuantity.value | json }} </pre>   
+
+        <span>Value Existencia</span>
+        <pre> {{ myForm.controls.existence.value | json }} </pre>
+
+    </div>
+</div>

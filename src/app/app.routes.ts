@@ -14,7 +14,11 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/users/users')
     },
     {
+        path: 'reactive-forms',
+        loadComponent: () => import('./pages/reactive-forms/reactive-forms')
+    },
+    {
         path: '**',
-        redirectTo: ''
+        redirectTo: 'reactive-forms'
     }
 ];
